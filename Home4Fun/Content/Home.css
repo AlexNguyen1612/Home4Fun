@@ -1,0 +1,73 @@
+﻿
+#front-page {
+    width: 100vw;
+    min-height:90vh;
+    height: auto;
+    background: url('../Images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+@font-face {
+    font-family: 'break semibold';
+    src: url('../Custom Fonts/break semibold.ttf') format('truetype');
+}
+
+#logo {
+    display:inline;
+    color: white;
+    font-family: 'break semibold';
+    font-size: 3vw;
+    letter-spacing: 9px;
+    border: 4px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left:25px;
+    text-align:center; 
+    animation: fadein ease 4s;
+}
+
+@keyframes fadein {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+
+.introText {
+    font-family: Courier New, Courier, monospace;
+    color: white;
+    font-size: 24px;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    white-space: nowrap; /* Keeps the content on a single line */
+    /*margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: 1px; /* Adjust as needed */
+    padding-top: 4%;
+    animation: typing 4s steps(50, end)
+}
+
+
+
+/* The typing effect */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+#inspiringQuote {
+    display: inline-block;
+    font-family: Vollkorn;
+    color: white;
+    font-size: 28px;
+    font-style: italic;
+    text-align:center;
+    padding-top: 30%;
+}
+
+#spacing {
+    padding-bottom: 2%;
+}

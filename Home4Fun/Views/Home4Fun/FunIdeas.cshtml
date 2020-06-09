@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Assignment1_WebDev.Models.FunIdeas>
+
+@{
+    ViewBag.Title = "FunIdeas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <h3>Ideas board </h3>
+            <br />
+            <div class="card-columns">
+                @foreach (var item in Model)
+                {
+                    <div class="card">
+                        <div class="top">
+                            <div class="comment-overlay"></div>
+                            <img src="@item.thumbnail" alt="@item.imgCaption" class="card-img-top" />
+                            <div class="comment-details fadeIn-bottom">
+                                <quote style="color:white;font-size:20px"><i>" @item.ideaComment "</i></quote>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">@item.ideaTitle</h4>
+                            <h6 class="difficulty-level"><strong>Difficulty:</strong> @Html.Raw(@Assignment1_WebDev.FunIdeas.getDifficultyLevel(@item.difficultyLevel)) </h6>
+                            <p class="card-text">@item.ideaDescription</p>
+                            <a onclick="window.open('/FunIdeaDetails.aspx?id=@item.ideaID', '_blank');" href="#" class="btn btn-outline-success btn-sm">Read More</a>
+                            <a href="#" class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i></a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

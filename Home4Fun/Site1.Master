@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Assignment1_WebDev.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <asp:ContentPlaceHolder ID="CPhead" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    <form class="container-fluid" id="form1" runat="server">
+        <nav class="navbar navbar-expand-sm row">
+            <div class="navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Home.aspx">HOME</a>
+                    </li>
+
+                    <% if ((String.Equals(CPBody.Page.Title, "Fun Ideas")) || (String.Equals(CPBody.Page.Title, "Fun Ideas EF")))
+                        { %>
+                    <li class='nav-item dropdown'>
+                        <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>FUN IDEAS
+                        </a>
+                        <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                            <h2 class='dropdown-header'>Ideas</h2>
+                            <div class='dropdown-divider'></div>
+                            <a class='dropdown-item' runat='server' onserverclick='displayAllIdeas'>All ideas</a>
+                            <div class='dropdown-divider'></div>
+                            <h2 class='dropdown-header'>Ideas by categories
+                            <span>Filter the list <br />by category</span>
+                            </h2>
+                            <div class='dropdown-divider'></div>
+                            <asp:LinkButton runat='server' OnCommand='filterByCategory' CommandArgument='Entertainment' class='dropdown-item'>Entertainment</asp:LinkButton>
+                            <asp:LinkButton runat='server' OnCommand='filterByCategory' CommandArgument='Trendy' class='dropdown-item'>Trendy</asp:LinkButton>
+                            <asp:LinkButton runat='server' OnCommand='filterByCategory' CommandArgument='Personal Development' class='dropdown-item'>Personal Development</asp:LinkButton>
+                            <asp:LinkButton runat='server' OnCommand='filterByCategory' CommandArgument='Trivial' class='dropdown-item'>Trivial</asp:LinkButton>
+                            <asp:LinkButton runat='server' OnCommand='filterByCategory' CommandArgument='Art' class='dropdown-item'>Art</asp:LinkButton>
+                            <asp:LinkButton runat='server' OnCommand='filterByCategory' CommandArgument='Meaningful' class='dropdown-item'>Meaningful</asp:LinkButton>
+                        </div>
+                    </li>
+                    <% }
+                        else
+                        { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/FunIdeas.aspx">FUN IDEAS</a>
+                    </li>
+                    <% } %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ABOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <asp:ContentPlaceHolder ID="CPBody" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+    </form>
+
+    <script src="../Scripts/jquery-3.5.0.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../Scripts/popper.js"></script>
+
+    <asp:ContentPlaceHolder ID="CPScript" runat="server"></asp:ContentPlaceHolder>
+</body>
+</html>

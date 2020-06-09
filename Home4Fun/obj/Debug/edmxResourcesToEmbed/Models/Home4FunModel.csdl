@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Home4FunDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FunIdeaDetails">
+    <Key>
+      <PropertyRef Name="detailsID" />
+    </Key>
+    <Property Name="detailsID" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ideaID" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="reference" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="updateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="largeImg" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="imgCaption" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="contentSummarization" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="FunIdea" Relationship="Self.FK_FunIdeaDetails" FromRole="FunIdeaDetails" ToRole="FunIdeas" />
+  </EntityType>
+  <EntityType Name="FunIdeas">
+    <Key>
+      <PropertyRef Name="ideaID" />
+    </Key>
+    <Property Name="ideaID" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ideaTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="thumbnail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="imgCaption" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ideaDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="toDo" Type="Boolean" Nullable="false" />
+    <Property Name="difficultyLevel" Type="Int32" />
+    <NavigationProperty Name="FunIdeaDetails" Relationship="Self.FK_FunIdeaDetails" FromRole="FunIdeas" ToRole="FunIdeaDetails" />
+    <Property Name="ideaComment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_FunIdeaDetails">
+    <End Role="FunIdeas" Type="Home4FunDBModel.FunIdeas" Multiplicity="0..1" />
+    <End Role="FunIdeaDetails" Type="Home4FunDBModel.FunIdeaDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FunIdeas">
+        <PropertyRef Name="ideaID" />
+      </Principal>
+      <Dependent Role="FunIdeaDetails">
+        <PropertyRef Name="ideaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Home4FunDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FunIdeaDetails1" EntityType="Home4FunDBModel.FunIdeaDetails" />
+    <EntitySet Name="FunIdeas1" EntityType="Home4FunDBModel.FunIdeas" />
+    <AssociationSet Name="FK_FunIdeaDetails" Association="Self.FK_FunIdeaDetails">
+      <End Role="FunIdeas" EntitySet="FunIdeas1" />
+      <End Role="FunIdeaDetails" EntitySet="FunIdeaDetails1" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Home4FunDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FunIdeaDetails">
+    <Key>
+      <PropertyRef Name="detailsID" />
+    </Key>
+    <Property Name="detailsID" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="ideaID" Type="nchar" MaxLength="5" />
+    <Property Name="reference" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="updateDate" Type="date" Nullable="false" />
+    <Property Name="largeImg" Type="varchar" MaxLength="500" />
+    <Property Name="imgCaption" Type="varchar" MaxLength="500" />
+    <Property Name="contentSummarization" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FunIdeas">
+    <Key>
+      <PropertyRef Name="ideaID" />
+    </Key>
+    <Property Name="ideaID" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="ideaTitle" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="thumbnail" Type="varchar" MaxLength="500" />
+    <Property Name="imgCaption" Type="varchar" MaxLength="100" />
+    <Property Name="ideaDescription" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="toDo" Type="bit" Nullable="false" />
+    <Property Name="difficultyLevel" Type="int" />
+    <Property Name="ideaComment" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <Association Name="FK_FunIdeaDetails">
+    <End Role="FunIdeas" Type="Self.FunIdeas" Multiplicity="0..1" />
+    <End Role="FunIdeaDetails" Type="Self.FunIdeaDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FunIdeas">
+        <PropertyRef Name="ideaID" />
+      </Principal>
+      <Dependent Role="FunIdeaDetails">
+        <PropertyRef Name="ideaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Home4FunDBModelStoreContainer">
+    <EntitySet Name="FunIdeaDetails" EntityType="Self.FunIdeaDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FunIdeas" EntityType="Self.FunIdeas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_FunIdeaDetails" Association="Self.FK_FunIdeaDetails">
+      <End Role="FunIdeas" EntitySet="FunIdeas" />
+      <End Role="FunIdeaDetails" EntitySet="FunIdeaDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

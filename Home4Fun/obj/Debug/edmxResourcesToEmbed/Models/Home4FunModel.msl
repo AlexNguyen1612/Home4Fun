@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Home4FunDBModelStoreContainer" CdmEntityContainer="Home4FunDBEntities">
+    <EntitySetMapping Name="FunIdeaDetails1">
+      <EntityTypeMapping TypeName="Home4FunDBModel.FunIdeaDetails">
+        <MappingFragment StoreEntitySet="FunIdeaDetails">
+          <ScalarProperty Name="detailsID" ColumnName="detailsID" />
+          <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+          <ScalarProperty Name="reference" ColumnName="reference" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+          <ScalarProperty Name="largeImg" ColumnName="largeImg" />
+          <ScalarProperty Name="imgCaption" ColumnName="imgCaption" />
+          <ScalarProperty Name="contentSummarization" ColumnName="contentSummarization" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FunIdeas1">
+      <EntityTypeMapping TypeName="Home4FunDBModel.FunIdeas">
+        <MappingFragment StoreEntitySet="FunIdeas">
+          <ScalarProperty Name="ideaComment" ColumnName="ideaComment" />
+          <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+          <ScalarProperty Name="ideaTitle" ColumnName="ideaTitle" />
+          <ScalarProperty Name="thumbnail" ColumnName="thumbnail" />
+          <ScalarProperty Name="imgCaption" ColumnName="imgCaption" />
+          <ScalarProperty Name="ideaDescription" ColumnName="ideaDescription" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="toDo" ColumnName="toDo" />
+          <ScalarProperty Name="difficultyLevel" ColumnName="difficultyLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/FunIdeas.css")
+    @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm row">
+        <div class="navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Home.aspx">HOME</a>
+                </li>
+                <li class='nav-item dropdown'>
+                    <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                        FUN IDEAS
+                    </a>
+                    <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                        <h2 class='dropdown-header'>Ideas</h2>
+                        <div class='dropdown-divider'></div>
+                        @Html.ActionLink("All Ideas", "FunIdeas", "Home4Fun", new { id = "" }, new { @class = "dropdown-item" })
+                        <div class='dropdown-divider'></div>
+                        <h2 class='dropdown-header'>Ideas by categories
+                        <span>Filter the list <br />by category</span></h2>
+                        <div class='dropdown-divider'></div>
+                        @Html.ActionLink("Entertainment", "FunIdeas", "Home4Fun", new { id = "Entertainment" }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("Trendy", "FunIdeas", "Home4Fun", new { id = "Trendy" }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("Personal Development", "FunIdeas", "Home4Fun", new { id = "Personal Development" }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("Trivial", "FunIdeas", "Home4Fun", new { id = "Trivial" }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("Art", "FunIdeas", "Home4Fun", new { id = "Art" }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("Meaningful", "FunIdeas", "Home4Fun", new { id = "Meaningful" }, new { @class = "dropdown-item" })
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ABOUT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
