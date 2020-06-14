@@ -16,4 +16,4 @@ A list of fun ideas and their brief description will be presented in the Ideas B
 When the user click on "Read More", a new tab will be opened which contains what to do with the idea in details
 
 ## Demo 
-Here is a small demo for the website. Check it out: [Home4Fun Demo](https://streamable.com/qgytg6)
+Here is a small video demo for the website. Check it out: [Home4Fun Demo](https://streamable.com/qgytg6)
